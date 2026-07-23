@@ -9,8 +9,13 @@ export function BackgroundScene({ theme, motionEnabled }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const themeRef = useRef(theme);
   const motionRef = useRef(motionEnabled);
-  themeRef.current = theme;
-  motionRef.current = motionEnabled;
+
+  useEffect(() => {
+    themeRef.current = theme;
+  }, [theme]);
+  useEffect(() => {
+    motionRef.current = motionEnabled;
+  }, [motionEnabled]);
 
   useEffect(() => {
     const canvas = canvasRef.current;

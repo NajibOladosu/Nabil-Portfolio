@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nabil Portfolio
 
-## Getting Started
+SEO content writer portfolio for Nabil Ibrahim-Oladosu — anime, manga & gaming coverage. Built with Next.js (App Router) and TypeScript, implementing the "Organic" design from Claude Design.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/app` — routes: home, `/work`, `/about`, `/contact`
+- `src/components` — nav, theme toggle, animated background (Three.js), reveal-on-scroll, work cards, contact form
+- `src/lib/data.ts` — all site copy and the work portfolio data
 
-## Learn More
+## Notes
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The contact form validates client-side and shows a success state, but isn't wired to send email yet — connect it to an API route + email provider (e.g. Resend) before relying on it.
+- `public/portrait.jpg` is not included; the About page currently shows a placeholder in its place — drop in a real photo and swap the `.about-portrait-inner` block in `src/app/about/page.tsx` for an `<Image>`.

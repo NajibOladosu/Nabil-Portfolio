@@ -113,6 +113,8 @@ button { font-family: inherit; }
 .page-enter { animation: om-pagein 0.5s ease both; }
 
 .reveal {
+  display: flex;
+  flex-direction: column;
   opacity: 0;
   transform: translateY(26px);
   transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -555,7 +557,6 @@ textarea.input { min-height: 110px; border-radius: var(--radius-md); resize: ver
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 22px;
 }
-.work-grid > .reveal { display: flex; }
 .work-card {
   text-decoration: none;
   color: inherit;
@@ -565,6 +566,7 @@ textarea.input { min-height: 110px; border-radius: var(--radius-md); resize: ver
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  width: 100%;
   will-change: transform;
   transition: border-color 0.2s ease;
 }
