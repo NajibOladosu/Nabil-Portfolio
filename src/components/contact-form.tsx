@@ -54,7 +54,7 @@ export function ContactForm() {
           <CheckIcon />
         </div>
         <h3 className="contact-sent-title">Message sent.</h3>
-        <p className="contact-sent-copy">Thanks — I&rsquo;ll get back to you within a day. In the meantime, feel free to browse the work.</p>
+        <p className="contact-sent-copy">Thanks! I&rsquo;ll get back to you within a day. In the meantime, feel free to browse the work.</p>
         <button type="button" onClick={resetForm} className="btn btn-secondary" style={{ marginTop: 22 }}>
           Send another
         </button>

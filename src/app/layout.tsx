@@ -17,15 +17,15 @@ const figtree = Figtree({
 
 export const metadata: Metadata = {
   title: {
-    default: "Nabil Ibrahim-Oladosu — SEO Content Writer | Anime, Manga & Gaming",
-    template: "%s — Nabil Ibrahim-Oladosu",
+    default: "Nabil Ibrahim-Oladosu · SEO Content Writer | Anime, Manga & Gaming",
+    template: "%s · Nabil Ibrahim-Oladosu",
   },
   description:
-    "Nabil Ibrahim-Oladosu is an SEO content writer covering anime, manga and gaming — 600+ published articles and 150,000+ organic views across Soap Central, Deltia's Gaming and Game Rant.",
+    "Nabil Ibrahim-Oladosu is an SEO content writer covering anime, manga and gaming, with 600+ published articles and 150,000+ organic views across Soap Central, Deltia's Gaming and Game Rant.",
   keywords: ["SEO content writer", "anime writer", "manga writer", "gaming writer", "freelance writer", "Nabil Ibrahim-Oladosu"],
   authors: [{ name: "Nabil Ibrahim-Oladosu" }],
   openGraph: {
-    title: "Nabil Ibrahim-Oladosu — SEO Content Writer",
+    title: "Nabil Ibrahim-Oladosu · SEO Content Writer",
     description: "Words that rank. Stories worth the binge. Anime, manga & gaming coverage across Soap Central, Deltia's Gaming and Game Rant.",
     type: "website",
   },

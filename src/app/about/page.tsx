@@ -5,7 +5,7 @@ import { phases, skills, experience, education, site } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Nabil Ibrahim-Oladosu — freelance anime, manga and gaming writer with a background in frontend development, pairing AI-accelerated research with 100% human prose.",
+  description: "Nabil Ibrahim-Oladosu, freelance anime, manga and gaming writer with a background in frontend development, pairing AI-accelerated research with 100% human prose.",
 };
 
 const ArrowIcon = () => (
@@ -15,9 +15,9 @@ const ArrowIcon = () => (
 );
 
 const PILLARS = [
-  { num: "01", title: "Trend-first, SEO-native", copy: "I read the fandom and the SERP together — tracking releases and discourse, then mapping the keywords that turn a moment into recurring search traffic." },
+  { num: "01", title: "Trend-first, SEO-native", copy: "I read the fandom and the SERP together: tracking releases and discourse, then mapping the keywords that turn a moment into recurring search traffic." },
   { num: "02", title: "Newsroom discipline", copy: "7+ pieces a week, 40+ in a first month, delivered to spec and self-published in WordPress with sourced media and clean metadata." },
-  { num: "03", title: "Fluent in the fandom", copy: "No faking it — every claim is checked against the official manga chapters and episodes. Zero-hallucination, canon-accurate." },
+  { num: "03", title: "Fluent in the fandom", copy: "No faking it: every claim is checked against the official manga chapters and episodes. Zero-hallucination, canon-accurate." },
 ];
 
 export default function AboutPage() {
@@ -38,7 +38,7 @@ export default function AboutPage() {
             I&rsquo;m a freelance entertainment writer specializing in anime, manga and gaming. Over the past few years I&rsquo;ve filed 600+ publication-ready pieces for outlets like Soap Central and Deltia&rsquo;s Gaming, plus feature bylines at Game Rant.
           </p>
           <p className="about-copy">
-            My workflow pairs trend identification with structured keyword strategy — high-volume, newsroom-standard articles on tight deadlines, from breaking news and release guides to deep character analyses and ranking listicles.
+            My workflow pairs trend identification with structured keyword strategy: high-volume, newsroom-standard articles on tight deadlines, from breaking news and release guides to deep character analyses and ranking listicles.
           </p>
           <p className="about-copy">
             A background as a frontend developer (Angular, TypeScript, Tailwind) and Unity game developer gives me a structured, technical read on publishing systems and digital media workflows.

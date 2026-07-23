@@ -27,13 +27,9 @@ export default function Home() {
   return (
     <div className="page-enter">
       <section className="container hero">
-        <span className="eyebrow">
-          <span className="eyebrow-rule" />
-          SEO content writer
-        </span>
         <h1 className="hero-title">Words that rank. Stories worth the binge.</h1>
         <p className="hero-lede">
-          I&rsquo;m Nabil — I turn fast-moving anime, manga &amp; gaming discourse and release schedules into sharp, SEO-optimized articles with high organic reach.
+          I&rsquo;m Nabil, and I turn fast-moving anime, manga &amp; gaming discourse and release schedules into sharp, SEO-optimized articles with high organic reach.
         </p>
         <div className="hero-meta">
           <span className="hero-meta-item">
@@ -102,7 +98,7 @@ export default function Home() {
           <blockquote className="quote-text">
             AI accelerates the research. Every final sentence, judgment call and character read is 100% human.
           </blockquote>
-          <figcaption className="quote-cite">— Nabil, on the workflow</figcaption>
+          <figcaption className="quote-cite">Nabil, on the workflow</figcaption>
         </div>
       </Reveal>
 
@@ -111,7 +107,7 @@ export default function Home() {
           <div className="cta-banner">
             <h2 className="cta-title">Have a beat that deserves to rank?</h2>
             <p className="cta-lede">
-              Features, guides, release schedules and evergreen explainers — researched, keyword-mapped and written to earn the click and keep it. Delivered in 24–48 hours.
+              Features, guides, release schedules and evergreen explainers: researched, keyword-mapped and written to earn the click and keep it. Delivered in 24–48 hours.
             </p>
             <Link data-magnetic href="/contact" className="btn btn-primary" style={{ marginTop: 28 }}>
               Start a project <ArrowIcon />

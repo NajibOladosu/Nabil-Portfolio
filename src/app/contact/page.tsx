@@ -27,7 +27,7 @@ export default function ContactPage() {
           <span className="eyebrow">Contact</span>
           <h1 className="contact-title">Let&rsquo;s make something rank.</h1>
           <p className="contact-lede">
-            Have a beat, a backlog of briefs, or a vertical that deserves more traffic? Tell me what you&rsquo;re building — articles delivered within 24–48 hours.
+            Have a beat, a backlog of briefs, or a vertical that deserves more traffic? Tell me what you&rsquo;re building. Articles delivered within 24–48 hours.
           </p>
           <div className="contact-links">
             <a href={`mailto:${site.email}`} className="contact-link">
@@ -43,7 +43,7 @@ export default function ContactPage() {
               <ArrowIcon />
             </a>
           </div>
-          <p className="contact-note">Available for freelance &amp; full-time writing roles — usually replying within a day.</p>
+          <p className="contact-note">Available for freelance &amp; full-time writing roles, usually replying within a day.</p>
         </div>
 
         <div>
