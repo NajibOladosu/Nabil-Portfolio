@@ -20,6 +20,10 @@ export function BackgroundScene({ theme, motionEnabled }: Props) {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    // Skip the WebGL scene on narrow viewports: the icosahedron reads as an
+    // oversized, low-contrast wash behind text at phone widths, and the extra
+    // GPU/battery cost isn't worth it there. Matches the .bg-three CSS hide below.
+    if (innerWidth < 820) return;
 
     const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const fine = matchMedia("(pointer:fine)").matches;

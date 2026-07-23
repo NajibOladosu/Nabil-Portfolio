@@ -115,6 +115,7 @@ button { font-family: inherit; }
 .reveal {
   display: flex;
   flex-direction: column;
+  min-width: 0;
   opacity: 0;
   transform: translateY(26px);
   transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -128,6 +129,7 @@ button { font-family: inherit; }
    Layout helpers
    ============================================================ */
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding-left: clamp(20px, 5vw, 72px);
@@ -376,9 +378,8 @@ textarea.input { min-height: 110px; border-radius: var(--radius-md); resize: ver
   position: fixed;
   inset: 0;
   z-index: 60;
-  background: color-mix(in srgb, var(--color-bg) 97%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: var(--color-bg);
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   padding: 18px clamp(20px, 6vw, 48px) 48px;
@@ -483,7 +484,8 @@ textarea.input { min-height: 110px; border-radius: var(--radius-md); resize: ver
 }
 
 .pubs-strip {
-  padding: clamp(30px, 4vw, 52px) 0 clamp(6px, 1vw, 10px);
+  padding-top: clamp(30px, 4vw, 52px);
+  padding-bottom: clamp(6px, 1vw, 10px);
   display: flex;
   align-items: center;
   gap: clamp(24px, 5vw, 64px);
@@ -704,19 +706,20 @@ textarea.input { min-height: 110px; border-radius: var(--radius-md); resize: ver
 /* ============================================================
    Page hero (Work / Contact)
    ============================================================ */
-.page-hero { padding: clamp(48px, 7vw, 104px) 0 clamp(20px, 3vw, 36px); }
+.page-hero { padding-top: clamp(48px, 7vw, 104px); padding-bottom: clamp(20px, 3vw, 36px); }
 .page-hero-title { font-size: clamp(42px, 7vw, 86px); line-height: 1; letter-spacing: -0.025em; margin: 18px 0 0; max-width: 14ch; }
 .page-hero-lede { font-size: clamp(16px, 1.5vw, 20px); line-height: 1.6; max-width: 58ch; margin: 26px 0 0; color: color-mix(in srgb, var(--color-text) 80%, transparent); }
 
 .filter-scroll { overflow-x: auto; margin-top: 34px; padding-bottom: 4px; }
 
-.work-page-grid { padding: clamp(16px, 2vw, 28px) 0 clamp(56px, 8vw, 110px); }
+.work-page-grid { padding-top: clamp(16px, 2vw, 28px); padding-bottom: clamp(56px, 8vw, 110px); }
 
 /* ============================================================
    About
    ============================================================ */
 .about-hero {
-  padding: clamp(48px, 7vw, 104px) 0 clamp(24px, 4vw, 56px);
+  padding-top: clamp(48px, 7vw, 104px);
+  padding-bottom: clamp(24px, 4vw, 56px);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: clamp(32px, 5vw, 72px);
@@ -792,7 +795,8 @@ textarea.input { min-height: 110px; border-radius: var(--radius-md); resize: ver
    Contact
    ============================================================ */
 .contact-hero {
-  padding: clamp(48px, 7vw, 104px) 0 clamp(32px, 5vw, 64px);
+  padding-top: clamp(48px, 7vw, 104px);
+  padding-bottom: clamp(32px, 5vw, 64px);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: clamp(36px, 5vw, 80px);
@@ -860,7 +864,8 @@ textarea.input { min-height: 110px; border-radius: var(--radius-md); resize: ver
    ============================================================ */
 .site-footer { border-top: 1px solid var(--color-divider); }
 .footer-top {
-  padding: clamp(32px, 5vw, 56px) clamp(20px, 5vw, 72px) clamp(10px, 2vw, 18px);
+  padding-top: clamp(32px, 5vw, 56px);
+  padding-bottom: clamp(10px, 2vw, 18px);
   display: flex;
   flex-wrap: wrap;
   gap: 28px;
@@ -880,4 +885,5 @@ textarea.input { min-height: 110px; border-radius: var(--radius-md); resize: ver
 @media (max-width: 819px) {
   .nav-links { display: none; }
   .mobile-menu-trigger { display: inline-flex; }
+  .bg-three { display: none; }
 }
