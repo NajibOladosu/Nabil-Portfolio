@@ -41,7 +41,7 @@ export default function AboutPage() {
             My workflow pairs trend identification with structured keyword strategy: high-volume, newsroom-standard articles on tight deadlines, from breaking news and release guides to deep character analyses and ranking listicles.
           </p>
           <p className="about-copy">
-            A background as a frontend developer (Angular, TypeScript, Tailwind) and Unity game developer gives me a structured, technical read on publishing systems and digital media workflows.
+            A background as a Frontend Developer (Angular, TypeScript, Tailwind) and Unity game developer gives me a structured, technical read on publishing systems and digital media workflows.
           </p>
         </div>
       </section>
