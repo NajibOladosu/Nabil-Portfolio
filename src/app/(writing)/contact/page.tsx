@@ -31,7 +31,7 @@ export default function ContactPage() {
           </p>
           <div className="contact-links">
             <a href={`mailto:${site.email}`} className="contact-link">
-              <span className="contact-link-label">{site.email}</span>
+              <span className="contact-link-label">Email</span>
               <ArrowIcon />
             </a>
             <a href={site.linkedin} target="_blank" rel="noopener" className="contact-link">

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Caprasimo, Figtree } from "next/font/google";
 import { ThemeInitScript } from "@/components/theme-init-script";
-import { SiteChrome } from "@/components/site-chrome";
 import "./globals.css";
 
 const caprasimo = Caprasimo({
@@ -37,8 +36,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <ThemeInitScript />
       </head>
-      <body>
-        <SiteChrome>{children}</SiteChrome>
+      <body suppressHydrationWarning>
+        {children}
       </body>
     </html>
   );

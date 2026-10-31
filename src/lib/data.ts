@@ -677,7 +677,7 @@ export const skills = [
 ];
 
 export const experience = [
-  { role: "Anime Content Writer", org: "Soap Central", time: "Apr 2025–Present", note: "500+ articles and 150,000+ organic views. 7+ weekly features, schedules and listicles across 30+ titles; 14,900+ views on an 11-part MF Ghost Season 3 series." },
+  { role: "Anime Content Writer", org: "Soap Central", time: "Apr 2025–May 2026", note: "500+ articles and 150,000+ organic views. 7+ weekly features, schedules and listicles across 30+ titles; 14,900+ views on an 11-part MF Ghost Season 3 series." },
   { role: "Anime Content Writer (Contract)", org: "Deltia's Gaming", time: "Dec 2024–Apr 2025", note: "100+ articles in five months, including 40+ in the first month. Sourced and formatted images to spec and worked with lead editors to cut revision loops." },
   { role: "Anime Features Writer", org: "Game Rant", time: "Jan 2024–Feb 2025", note: "Feature bylines and lore breakdowns under strict internal style guides for SEO headlines, intro hooks and internal linking." },
   { role: "Frontend Developer (Angular)", org: "Tireda Technologies", time: "Oct 2025–Present", note: "Maintaining admin platforms in Angular 17+ with standalone components and Tailwind CSS, a technical lens on web publishing." },

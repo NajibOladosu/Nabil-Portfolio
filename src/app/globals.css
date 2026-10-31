@@ -857,6 +857,8 @@ textarea.input { min-height: 110px; border-radius: var(--radius-md); resize: ver
 .services-section { padding-top: clamp(16px, 3vw, 40px); padding-bottom: clamp(56px, 8vw, 110px); }
 .services-head { border-top: 1px solid var(--color-divider); padding-top: clamp(32px, 4vw, 52px); margin-bottom: 26px; }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
+.phase-grid, .services-grid { grid-auto-rows: 1fr; }
+.phase-grid > .reveal > .phase-card, .services-grid > .reveal > .service-card { height: 100%; }
 .service-card { background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-lg); padding: 26px; display: flex; flex-direction: column; }
 .service-title { font-family: var(--font-heading); font-size: 21px; letter-spacing: -0.01em; margin: 0; }
 .service-copy { font-size: 14px; line-height: 1.55; margin: 12px 0 0; color: color-mix(in srgb, var(--color-text) 74%, transparent); }

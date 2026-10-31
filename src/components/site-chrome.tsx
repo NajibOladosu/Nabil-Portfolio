@@ -6,6 +6,8 @@ import { SiteNav } from "@/components/site-nav";
 import { MobileMenu } from "@/components/mobile-menu";
 import { SiteFooter } from "@/components/site-footer";
 
+export type NavItem = { href: string; label: string };
+
 const BackgroundScene = dynamic(() => import("@/components/background-scene").then((m) => m.BackgroundScene), {
   ssr: false,
 });
@@ -22,7 +24,15 @@ function getServerThemeSnapshot(): "light" | "dark" {
   return "light";
 }
 
-export function SiteChrome({ children }: { children: ReactNode }) {
+export function SiteChrome({
+  children,
+  nav,
+  tagline,
+}: {
+  children: ReactNode;
+  nav: NavItem[];
+  tagline: string;
+}) {
   const theme = useSyncExternalStore(subscribeThemeAttr, getThemeSnapshot, getServerThemeSnapshot);
   const [menuOpen, setMenuOpen] = useState(false);
   const glowRef = useRef<HTMLDivElement>(null);
@@ -75,10 +85,10 @@ export function SiteChrome({ children }: { children: ReactNode }) {
       <div ref={glowRef} className="cursor-glow" aria-hidden="true" />
 
       <div className="site-content">
-        <SiteNav theme={theme} onToggleTheme={toggleTheme} onOpenMenu={() => setMenuOpen(true)} />
-        {menuOpen && <MobileMenu onClose={() => setMenuOpen(false)} />}
+        <SiteNav nav={nav} theme={theme} onToggleTheme={toggleTheme} onOpenMenu={() => setMenuOpen(true)} />
+        {menuOpen && <MobileMenu nav={nav} onClose={() => setMenuOpen(false)} />}
         <main>{children}</main>
-        <SiteFooter />
+        <SiteFooter tagline={tagline} />
       </div>
     </>
   );
