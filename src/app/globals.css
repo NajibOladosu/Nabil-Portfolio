@@ -162,7 +162,6 @@ button { font-family: inherit; }
   border: 1px solid transparent;
   padding: 15px 28px;
   border-radius: 999px;
-  will-change: transform;
 }
 .btn svg { display: block; }
 .btn-primary { background: var(--color-accent); color: var(--color-bg); }
@@ -298,7 +297,6 @@ textarea.input { min-height: 110px; border-radius: var(--radius-md); resize: ver
   background: radial-gradient(circle, color-mix(in srgb, var(--color-accent) 15%, transparent), transparent 60%);
   opacity: 0;
   transition: opacity 0.35s ease;
-  will-change: transform;
 }
 
 .site-content { position: relative; z-index: 2; }
@@ -367,7 +365,6 @@ textarea.input { min-height: 110px; border-radius: var(--radius-md); resize: ver
   background: transparent;
   color: inherit;
   cursor: pointer;
-  will-change: transform;
   flex-shrink: 0;
 }
 .icon-btn:hover { background: color-mix(in srgb, var(--color-text) 8%, transparent); }
@@ -557,6 +554,7 @@ textarea.input { min-height: 110px; border-radius: var(--radius-md); resize: ver
 .work-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-auto-rows: 1fr;
   gap: 22px;
 }
 .work-card {
@@ -569,14 +567,14 @@ textarea.input { min-height: 110px; border-radius: var(--radius-md); resize: ver
   display: flex;
   flex-direction: column;
   width: 100%;
-  will-change: transform;
+  height: 100%;
   transition: border-color 0.2s ease;
 }
 .work-card:hover { border-color: var(--color-accent); opacity: 1; }
 .work-card-head {
   background: var(--color-accent-2-100);
   padding: 20px 22px;
-  aspect-ratio: 16 / 9;
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -603,10 +601,9 @@ textarea.input { min-height: 110px; border-radius: var(--radius-md); resize: ver
 }
 .work-card-topic {
   font-family: var(--font-heading);
-  font-size: clamp(24px, 2.8vw, 32px);
-  line-height: 1.02;
-  letter-spacing: -0.01em;
-  color: var(--color-text);
+  font-size: 15px;
+  line-height: 1.2;
+  color: var(--color-accent);
 }
 .work-card-body {
   padding: 18px 20px 20px;
@@ -616,17 +613,26 @@ textarea.input { min-height: 110px; border-radius: var(--radius-md); resize: ver
 }
 .work-card-title {
   font-family: var(--font-heading);
-  font-size: 19px;
-  line-height: 1.2;
-  letter-spacing: -0.005em;
+  font-size: clamp(20px, 1.8vw, 24px);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
   margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
 }
 .work-card-summary {
   font-size: 13.5px;
   line-height: 1.55;
   margin: 10px 0 0;
   color: color-mix(in srgb, var(--color-text) 70%, transparent);
-  flex: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin-bottom: auto;
 }
 .work-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
 .work-card-foot {

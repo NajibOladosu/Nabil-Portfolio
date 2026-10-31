@@ -10,7 +10,7 @@ const ArrowIcon = () => (
   </svg>
 );
 
-export function WorkCard({ work, big = false, showTags = false }: { work: Work; big?: boolean; showTags?: boolean }) {
+export function WorkCard({ work, showTags = false }: { work: Work; showTags?: boolean }) {
   const ref = useRef<HTMLAnchorElement>(null);
 
   const onPointerMove = (e: React.PointerEvent<HTMLAnchorElement>) => {
@@ -43,12 +43,10 @@ export function WorkCard({ work, big = false, showTags = false }: { work: Work; 
             <span className="work-card-cat">{work.cat}</span>
             <span className="work-card-pub">{work.pub}</span>
           </div>
-          <div className="work-card-topic" style={big ? { fontSize: "clamp(24px,2.8vw,32px)" } : undefined}>
-            {work.topic}
-          </div>
+          <h3 className="work-card-title">{work.title}</h3>
         </div>
         <div className="work-card-body">
-          <h3 className="work-card-title">{work.title}</h3>
+          <div className="work-card-topic">{work.topic}</div>
           <p className="work-card-summary">{work.summary}</p>
           {showTags && (
             <div className="work-card-tags">
