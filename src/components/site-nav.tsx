@@ -3,13 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site } from "@/lib/data";
-
-const NAV_ITEMS = [
-  { href: "/", label: "Home" },
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+import type { NavItem } from "@/components/site-chrome";
 
 const SunIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -29,15 +23,18 @@ const MenuIcon = () => (
 );
 
 export function SiteNav({
+  nav,
   theme,
   onToggleTheme,
   onOpenMenu,
 }: {
+  nav: NavItem[];
   theme: "light" | "dark";
   onToggleTheme: () => void;
   onOpenMenu: () => void;
 }) {
-  const pathname = usePathname();
+  // The dev site is served from /dev via a host rewrite (src/proxy.ts), so strip it to match nav hrefs.
+  const pathname = usePathname().replace(/^\/dev/, "") || "/";
 
   return (
     <nav className="nav">
@@ -47,7 +44,7 @@ export function SiteNav({
       </Link>
 
       <div className="nav-links">
-        {NAV_ITEMS.map((item) => (
+        {nav.map((item) => (
           <Link
             key={item.href}
             href={item.href}

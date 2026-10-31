@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { site } from "@/lib/data";
 
 type FormState = { name: string; email: string; project: string };
 type Errors = Partial<Record<keyof FormState, string>>;
@@ -17,18 +18,30 @@ const CheckIcon = () => (
 );
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+// FormSubmit forwards the submission to this inbox. The first ever submission sends an activation email there.
+const ENDPOINT = `https://formsubmit.co/ajax/${site.email}`;
 
-export function ContactForm() {
+export function ContactForm({
+  subject = "New message from your writing portfolio",
+  emailPlaceholder = "you@publication.com",
+  projectLabel = "About the project",
+  projectPlaceholder = "A gaming vertical that needs evergreen guides...",
+}: {
+  subject?: string;
+  emailPlaceholder?: string;
+  projectLabel?: string;
+  projectPlaceholder?: string;
+}) {
   const [form, setForm] = useState<FormState>({ name: "", email: "", project: "" });
   const [errors, setErrors] = useState<Errors>({});
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "failed">("idle");
 
   const setField = (key: keyof FormState, value: string) => {
     setForm((s) => ({ ...s, [key]: value }));
     setErrors((e) => ({ ...e, [key]: undefined }));
   };
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const next: Errors = {};
     if (!form.name.trim()) next.name = "Tell me your name";
@@ -38,16 +51,35 @@ export function ContactForm() {
       setErrors(next);
       return;
     }
-    setSent(true);
+    setStatus("sending");
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          message: form.project.trim(),
+          _subject: subject,
+          _template: "table",
+          _captcha: "false",
+          _honey: new FormData(e.currentTarget).get("_honey") ?? "",
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      setStatus(res.ok && String(data.success) === "true" ? "sent" : "failed");
+    } catch {
+      setStatus("failed");
+    }
   };
 
   const resetForm = () => {
-    setSent(false);
+    setStatus("idle");
     setForm({ name: "", email: "", project: "" });
     setErrors({});
   };
 
-  if (sent) {
+  if (status === "sent") {
     return (
       <div className="contact-sent">
         <div className="contact-sent-icon">
@@ -64,6 +96,8 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="contact-form">
+      {/* Spam trap: hidden from people, filled in by bots. */}
+      <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ display: "none" }} />
       <div className="field">
         <label htmlFor="name">Your name</label>
         <input
@@ -84,23 +118,28 @@ export function ContactForm() {
           type="email"
           value={form.email}
           onChange={(e) => setField("email", e.target.value)}
-          placeholder="you@publication.com"
+          placeholder={emailPlaceholder}
         />
         {errors.email && <div className="field-error">{errors.email}</div>}
       </div>
       <div className="field">
-        <label htmlFor="project">About the project</label>
+        <label htmlFor="project">{projectLabel}</label>
         <textarea
           id="project"
           className="input"
           value={form.project}
           onChange={(e) => setField("project", e.target.value)}
-          placeholder="A gaming vertical that needs evergreen guides..."
+          placeholder={projectPlaceholder}
         />
         {errors.project && <div className="field-error">{errors.project}</div>}
       </div>
-      <button type="submit" className="btn btn-primary btn-block">
-        Send it over <ArrowIcon />
+      {status === "failed" && (
+        <div className="field-error" role="alert" style={{ marginBottom: 14 }}>
+          That didn&rsquo;t go through. Please try again, or <a href={`mailto:${site.email}`}>email me directly</a>.
+        </div>
+      )}
+      <button type="submit" className="btn btn-primary btn-block" disabled={status === "sending"}>
+        {status === "sending" ? "Sending..." : <>Send it over <ArrowIcon /></>}
       </button>
     </form>
   );

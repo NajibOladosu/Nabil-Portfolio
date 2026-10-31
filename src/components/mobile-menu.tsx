@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { site } from "@/lib/data";
+import type { NavItem } from "@/components/site-chrome";
 
 const CloseIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -9,7 +10,7 @@ const CloseIcon = () => (
   </svg>
 );
 
-export function MobileMenu({ onClose }: { onClose: () => void }) {
+export function MobileMenu({ nav, onClose }: { nav: NavItem[]; onClose: () => void }) {
   return (
     <div className="mobile-menu">
       <div className="mobile-menu-head">
@@ -22,18 +23,16 @@ export function MobileMenu({ onClose }: { onClose: () => void }) {
         </button>
       </div>
       <div className="mobile-menu-links">
-        <Link href="/" onClick={onClose} className="mobile-menu-link">
-          Home
-        </Link>
-        <Link href="/work" onClick={onClose} className="mobile-menu-link">
-          Work
-        </Link>
-        <Link href="/about" onClick={onClose} className="mobile-menu-link">
-          About
-        </Link>
-        <Link href="/contact" onClick={onClose} className="mobile-menu-link mobile-menu-link--accent">
-          Contact
-        </Link>
+        {nav.map((item, i) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            onClick={onClose}
+            className={i === nav.length - 1 ? "mobile-menu-link mobile-menu-link--accent" : "mobile-menu-link"}
+          >
+            {item.label}
+          </Link>
+        ))}
       </div>
     </div>
   );

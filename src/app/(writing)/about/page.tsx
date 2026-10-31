@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { phases, skills, experience, education, site } from "@/lib/data";
+import { DEV_URL } from "@/lib/dev-data";
 
 export const metadata: Metadata = {
   title: "About",
@@ -41,7 +42,11 @@ export default function AboutPage() {
             My workflow pairs trend identification with structured keyword strategy: high-volume, newsroom-standard articles on tight deadlines, from breaking news and release guides to deep character analyses and ranking listicles.
           </p>
           <p className="about-copy">
-            A background as a Frontend Developer (Angular, TypeScript, Tailwind) and Unity game developer gives me a structured, technical read on publishing systems and digital media workflows.
+            A background as a Frontend Developer (Angular, TypeScript, Tailwind) and Unity game developer gives me a structured, technical read on publishing systems and digital media workflows. That side of my work lives in my{" "}
+            <a href={DEV_URL} style={{ color: "var(--color-accent)" }}>
+              dev portfolio
+            </a>
+            .
           </p>
         </div>
       </section>

@@ -6,7 +6,7 @@ const ArrowIcon = () => (
   </svg>
 );
 
-export function SiteFooter() {
+export function SiteFooter({ tagline }: { tagline: string }) {
   return (
     <footer className="site-footer">
       <div className="container footer-top">
@@ -15,7 +15,7 @@ export function SiteFooter() {
             {site.name}
             <span className="nav-dot">.</span>
           </div>
-          <p className="footer-tagline">SEO content writer covering anime, manga &amp; gaming. Lagos, Nigeria · Remote.</p>
+          <p className="footer-tagline">{tagline}</p>
         </div>
         <div className="footer-links">
           <a href={`mailto:${site.email}`} className="footer-link">

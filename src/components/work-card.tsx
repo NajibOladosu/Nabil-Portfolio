@@ -10,7 +10,7 @@ const ArrowIcon = () => (
   </svg>
 );
 
-export function WorkCard({ work, showTags = false }: { work: Work; showTags?: boolean }) {
+export function WorkCard({ work, showTags = false }: { work: Omit<Work, "group" | "home">; showTags?: boolean }) {
   const ref = useRef<HTMLAnchorElement>(null);
 
   const onPointerMove = (e: React.PointerEvent<HTMLAnchorElement>) => {
@@ -32,7 +32,7 @@ export function WorkCard({ work, showTags = false }: { work: Work; showTags?: bo
       <a
         ref={ref}
         href={work.link}
-        target="_blank"
+        target={work.link.startsWith("http") ? "_blank" : undefined}
         rel="noopener"
         className="work-card"
         onPointerMove={onPointerMove}
